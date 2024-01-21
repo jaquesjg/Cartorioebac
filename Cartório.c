@@ -129,6 +129,7 @@ int main()//principal função do programa
 		printf("\n1° \tRegistrar nomes");
 		printf("\n2° \tConsultar nomes");
 		printf("\n3° \tDeletar nomes\n\n");
+		printf("4° \tsair do sitema\n\n");
 		printf("Opção:");
 	
 		scanf("%d", &opcao);//armazena variáveis do tipo inteiro
@@ -147,6 +148,11 @@ int main()//principal função do programa
 			
 			case 3:
 			deletar();
+			break;
+			
+			case 4:
+			printf("Obrigado por utilizar o sistema!!\n");
+			return 0;
 			break;
 			
 			default:
