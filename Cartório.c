@@ -79,11 +79,11 @@ int consulta()
 	
 	while(fgets(conteudo, 200, file) !=NULL)
 	{
-		printf("\nEssas são as informações do usário:");
+		printf("\nEssas são as informações do usuário:");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
-	
+	fclose(file);
 	system("pause");
 }
 
@@ -94,37 +94,38 @@ int deletar()
 	printf("Digite o cpf do usuário ser deletado: ");
 	scanf("%s", cpf);
 	
-	remove(cpf);
-	
 	FILE *file;
 	file = fopen(cpf, "r");
 	
 	if(file == NULL)
 	{
-		printf("O usuário não se encontra no sitema. \n");
+		printf("O usuário não se encontra no sistema.\n");
 		system("pause");
 	}
+	fclose(file);
+	
 	
 	if(file != NULL)
 	{
-		printf("Usuário deletado com sucesso. \n");
+		remove (cpf);
+		printf("usuário deletado com sucesso. \n");
 		system("pause");
 	}
-	
 }
 
 int main()//principal função do programa
 {
+	setlocale(LC_ALL, "portuguese");
 	int opcao=0;//Definindo a variável 
 	int laco=1;
 	char senhadigitada[10]="a";
 	int comparacao;
 	
-	printf("\t###Cartório EBAC###\n\n");
-	printf("login de administrador!\n\nDigite a sua senha: ");
+	printf("\n\n\t###Cartório EBAC###\n\n");
+	printf("\n\nLogin do administrador!\n\nDigite a sua senha: ");
 	scanf("%s", senhadigitada);
 	
-	comparacao = strcmp(senhadigitada, "admin");
+	comparacao = strcmp(senhadigitada, "admin"); 
 	
 	if(comparacao == 0)
 	{
